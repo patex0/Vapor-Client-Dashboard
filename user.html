@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@1.6.3/dist/flowbite.min.css" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.1/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Add any custom styles here */
+        .blurred-background {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            text-align: center;
+            color: white;
+        }
+
+        .nav-bg {
+            transition: background-color 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen">
+
+        <aside class="w-64 bg-gray-800 text-white hidden md:block">
+            <div class="p-4">
+                <h2 class="text-xl font-bold">Cognosphere Dynamics</h2>
+            </div>
+            <ul class="space-y-2">
+                <li>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-700" id="home-tab">
+                        <i class="fas fa-home mr-2"></i> Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-700" id="servers-tab">
+                        <i class="fas fa-server mr-2"></i> Servers
+                    </a>
+                </li>
+                <li x-data="{ open: false }">
+                    <button @click="open = ! open"
+                        class="flex items-center justify-between w-full py-2 px-4 hover:bg-gray-700">
+                        <div class="flex items-center">
+                            <i class="fas fa-ticket-alt mr-2"></i> Tickets
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 transition-transform duration-200"
+                            :class="{'rotate-180': open}">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+                    <ul x-show="open" class="bg-gray-700 ml-4 rounded" x-collapse>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Support</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Past Invoices</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Active Invoices</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Unpaid Invoices</a></li>
+                    </ul>
+                </li>
+
+                <li x-data="{ open: false }">
+                    <button @click="open = ! open"
+                        class="flex items-center justify-between w-full py-2 px-4 hover:bg-gray-700">
+                        <div class="flex items-center">
+                            <i class="fas fa-box-open mr-2"></i> All Products
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 transition-transform duration-200"
+                            :class="{'rotate-180': open}">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+                    <ul x-show="open" class="bg-gray-700 ml-4 rounded" x-collapse>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Twogere</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">GoLive</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">YoUniversity</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Vapour1</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Vapour2</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Vapour3</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Vapour4</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Vapour5</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Vapour6</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Vapour7</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Vapour8</a></li>
+
+
+                    </ul>
+                </li>
+                <li x-data="{ open: false }">
+                    <button @click="open = ! open"
+                        class="flex items-center justify-between w-full py-2 px-4 hover:bg-gray-700">
+                        <div class="flex items-center">
+                            <i class="fas fa-user mr-2"></i> Account
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 transition-transform duration-200"
+                            :class="{'rotate-180': open}">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+                    <ul x-show="open" class="bg-gray-700 ml-4 rounded" x-collapse>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Account Information</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Change Password</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Billing Information</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Payment Methods</a></li>
+                        <li><a href="#" class="block py-2 px-4 hover:bg-gray-600">Credits</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="flex-1 p-6 overflow-y-auto">
+            <div id="content">
+                <h1 class="text-2xl font-bold mb-4">Welcome to Your Dashboard</h1>
+                <p>Select an option from the sidebar.</p>
+                
+            </div>
+
+
+
+
+            <div class="pt-10 max-w-screen-xl mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 pb-4">
+                    <div class="max-w-sm blurred-background border border-gray-200 rounded-lg shadow dark:bg-gray-800/50 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                        <a href="#">
+                            <img class="rounded-t-lg w-full h-64 object-cover" src="./aic.jpg" alt="" />
+                        </a>
+                        <div class="p-5">
+                            <a href="#">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    Artificial Intelligence.
+                                </h5>
+                            </a>
+                            <p class="mb-3 font-normal text-2xl text-gray-700 dark:text-gray-400">
+                                Revolutionizing industries with powerful AI for automation, NLP, and real-time decision-making.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blurred-background max-w-sm border border-gray-200 rounded-lg shadow dark:bg-gray-800/50 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                        <a href="#">
+                            <img class="rounded-t-lg w-full h-64 object-cover" src="./hrobotics.jpg" alt="" />
+                        </a>
+                        <div class="p-5">
+                            <a href="#">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    Humanoid Robotics.
+                                </h5>
+                            </a>
+                            <p class="mb-3 font-normal text-2xl text-gray-700 dark:text-gray-400">
+                                Smart humanoid robots enhancing productivity, research, and assistive technology.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blurred-background max-w-sm border border-gray-200 rounded-lg shadow dark:bg-gray-800/50 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                        <a href="#">
+                            <img class="rounded-t-lg w-full h-64 object-cover" src="./aicloud.webp" alt="" />
+                        </a>
+                        <div class="p-5">
+                            <a href="#">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    Cloud Infrastructure.
+                                </h5>
+                            </a>
+                            <p class="mb-3 font-normal text-2xl text-gray-700 dark:text-gray-400">
+                                Vapour AI Cloud—high-performance AI computing for training, inference, and ASI.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blurred-background max-w-sm border border-gray-200 rounded-lg shadow dark:bg-gray-800/50 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                        <a href="#">
+                            <img class="rounded-t-lg w-full h-64 object-cover" src="./consult.webp" alt="" />
+                        </a>
+                        <div class="p-5">
+                            <a href="#">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                   Consultancy.
+                                </h5>
+                            </a>
+                            <p class="mb-3 font-normal text-2xl text-gray-700 dark:text-gray-400">
+                                Expert AI solutions tailored for innovation, automation, and business transformation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="mb-8 mt-8 border-b items-center justify-center border-gray-200">
+                <ul class="flex flex-wrap w-full -mb-px text-4xl font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+                    <li class="me-2 mx-auto" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">AI Cloud</button>
+                    </li>
+                    <li class="me-2 mx-auto" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">AI Solutions</button>
+                    </li>
+                    <li class="me-2 mx-auto" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Robotics</button>
+                    </li>
+                    <li class="mx-auto" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab" aria-controls="contacts" aria-selected="false">Consultancy</button>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="mx-auto grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-16">
+                <div class="flex flex-col justify-center">
+                    <div class="inline-flex items-center w-full">
+                        <hr class="w-64 h-2 my-8 bg-gray-400 border-0">
+                        <span class="absolute text-2xl px-3 font-bold text-blue-800 -translate-x-1/6 bg-gray-100">GPU VPS</span>
+                    </div>
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-600 text-6xl">
+                        Deploy your AI model now!
+                    </h1>
+                    <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+                        Scale your models seamlessly with our high-performance AI servers, optimized for deep learning, ASI development, and real-time inference.
+                    </p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+                        <a href="#" class="inline-flex w-1/2 justify-center items-center py-3 px-5 text-base font-semibold text-center text-white rounded-lg bg-blue-900 hover:bg-green-600">
+                            7 Days Free Trial
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            
+                <!-- GIF Container with Fixed Width -->
+                <div class="relative flex justify-end items-end" style="width: 320px;">
+                    <img class="h-80" src="./output-onlinegiftools.gif">
+                </div>
+            </div>
+            
+            
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 pb-4">
+                <div class="max-w-sm blurred-background border border-gray-200 rounded-lg shadow dark:bg-gray-800/50 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-lg shadow-md">
+                        Available
+                    </div>
+                    <a href="#">
+                        <img class="rounded-t-lg w-full h-64 object-cover" src="./ai.jpg" alt="Vapour 1 AI Server" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" id="Vapour1">
+                                Vapour 1
+                            </h5>
+                        </a>
+                        <p class="mb-3 font-medium text-gray-700 dark:text-gray-400">
+                            Optimized for AI workloads and inference tasks. Ideal for entry-level AI training and small-scale deep learning.
+                        </p>
+                        <ul class="mb-3 text-gray-700 dark:text-gray-400 text-sm space-y-2">
+                            <li><strong>GPU:</strong> 1 × NVIDIA A100 40GB</li>
+                            <li><strong>CPU:</strong> 8 vCPUs (Intel Xeon Scalable)</li>
+                            <li><strong>RAM:</strong> 32GB DDR4</li>
+                            <li><strong>Storage:</strong> 500GB NVMe SSD</li>
+                            <li><strong>Networking:</strong> 5Gbps</li>
+                            <li><strong>AI Acceleration:</strong> Tensor Cores</li>
+                        </ul>
+                        <div class="mb-4">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">Starting at $299/month</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center justify-center px-3 py-2 text-lg font-medium text-center text-white bg-blue-900 w-full rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                            Subscribe Now
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="max-w-sm blurred-background border border-gray-200 rounded-lg shadow dark:bg-gray-800/50 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-lg shadow-md">
+                        Coming Soon
+                    </div>
+                    <a href="#">
+                        <img class="rounded-t-lg w-full h-64 object-cover" src="./ai.jpg" alt="Vapour 1 AI Server" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" id="Vapour2">
+                                Vapour 2
+                            </h5>
+                        </a>
+                        <p class="mb-3 font-medium text-gray-700 dark:text-gray-400">
+                            Designed for mid-range AI workloads and deep learning training. Suitable for AI model development and computer vision applications.
+                        </p>
+                        <ul class="mb-3 text-gray-700 dark:text-gray-400 text-sm space-y-2">
+                            <li><strong>GPU:</strong> 2 × NVIDIA A100 80GB</li>
+                            <li><strong>CPU:</strong> 16 vCPUs (Intel Xeon Scalable)</li>
+                            <li><strong>RAM:</strong> 64GB DDR4</li>
+                            <li><strong>Storage:</strong> 1TB NVMe SSD</li>
+                            <li><strong>Networking:</strong> 10Gbps</li>
+                            <li><strong>AI Acceleration:</strong> Tensor Cores, AI-enhanced storage</li>
+                        </ul>
+                        <div class="mb-4">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$599/month</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="max-w-sm blurred-background border border-gray-200 rounded-lg shadow dark:bg-gray-800/50 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-lg shadow-md">
+                        Coming Soon
+                    </div>
+                    <a href="#">
+                        <img class="rounded-t-lg w-full h-64 object-cover" src="./ai.jpg" alt="Vapour 1 AI Server" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" id="Vapour3">
+                                Vapour 3
+                            </h5>
+                        </a>
+                        <p class="mb-3 font-medium text-gray-700 dark:text-gray-400">
+                            Engineered for large AI models, reinforcement learning, and AI research. Great for training complex neural networks and real-time inference.
+                        </p>
+                        <ul class="mb-3 text-gray-700 dark:text-gray-400 text-sm space-y-2">
+                            <li><strong>GPU:</strong> 4 × NVIDIA A100 80GB</li>
+                            <li><strong>CPU:</strong> 32 vCPUs (AMD EPYC 7xx3)</li>
+                            <li><strong>RAM:</strong> 128GB DDR4</li>
+                            <li><strong>Storage:</strong> 2TB NVMe SSD</li>
+                            <li><strong>Networking:</strong> 25Gbps</li>
+                            <li><strong>AI Acceleration:</strong> AI-optimized workload balancing</li>
+                        </ul>
+                        <div class="mb-4">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$999/month</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="max-w-sm blurred-background border border-gray-200 rounded-lg shadow dark:bg-gray-800/50 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-lg shadow-md">
+                        Coming Soon
+                    </div>
+                    <a href="#">
+                        <img class="rounded-t-lg w-full h-64 object-cover" src="./ai.jpg" alt="Vapour 1 AI Server" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" id="Vapour4">
+                                Vapour 4
+                            </h5>
+                        </a>
+                        <p class="mb-3 font-medium text-gray-700 dark:text-gray-400">
+                            Optimized for advanced AI model training, generative AI, and NLP tasks. Perfect for high-performance computing in AI-driven applications.
+                        </p>
+                        <ul class="mb-3 text-gray-700 dark:text-gray-400 text-sm space-y-2">
+                            <li><strong>GPU:</strong> 4 × NVIDIA H100 80GB</li>
+                            <li><strong>CPU:</strong> 64 vCPUs (AMD EPYC Genoa)</li>
+                            <li><strong>RAM:</strong> 256GB DDR5</li>
+                            <li><strong>Storage:</strong> 4TB NVMe SSD</li>
+                            <li><strong>Networking:</strong> 40Gbps</li>
+                            <li><strong>AI Acceleration:</strong> Quantum-inspired AI processing</li>
+                        </ul>
+                        <div class="mb-4">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$1,999/month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 pb-4">
+                <div class="max-w-sm blurred-background border border-gray-200 rounded-lg shadow dark:bg-gray-800/50 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-lg shadow-md">
+                        Coming Soon
+                    </div>
+                    <a href="#">
+                        <img class="rounded-t-lg w-full h-64 object-cover" src="./ai.jpg" alt="Vapour 1 AI Server" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" id="Vapour5">
+                                Vapour 5
+                            </h5>
+                        </a>
+                        <p class="mb-3 font-medium text-gray-700 dark:text-gray-400">
+                            Ideal for AI data centers, cloud robotics, and autonomous systems. Provides massive computational power for robotics and AI automation.
+                        </p>
+                        <ul class="mb-3 text-gray-700 dark:text-gray-400 text-sm space-y-2">
+                            <li><strong>GPU:</strong> 8 × NVIDIA H100 80GB</li>
+                            <li><strong>CPU:</strong> 128 vCPUs (Intel Sapphire Rapids)</li>
+                            <li><strong>RAM:</strong> 512GB DDR5</li>
+                            <li><strong>Storage:</strong> 8TB NVMe SSD</li>
+                            <li><strong>Networking:</strong> 50Gbps</li>
+                            <li><strong>AI Acceleration:</strong> AI-driven network optimization</li>
+                        </ul>
+                        <div class="mb-4">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$3,999/month</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="max-w-sm blurred-background border border-gray-200 rounded-lg shadow dark:bg-gray-800/50 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-lg shadow-md">
+                        Coming Soon
+                    </div>
+                    <a href="#">
+                        <img class="rounded-t-lg w-full h-64 object-cover" src="./ai.jpg" alt="Vapour 1 AI Server" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" id="Vapour6">
+                                Vapour 6
+                            </h5>
+                        </a>
+                        <p class="mb-3 font-medium text-gray-700 dark:text-gray-400">
+                            Optimized for LLM hosting, cloud AI platforms, and real-time AI applications. Perfect for hosting AI-powered SaaS solutions.
+                        </p>
+                        <ul class="mb-3 text-gray-700 dark:text-gray-400 text-sm space-y-2">
+                            <li><strong>GPU:</strong> 8 × NVIDIA B100 128GB</li>
+                            <li><strong>CPU:</strong> 256 vCPUs (AMD EPYC Bergamo)</li>
+                            <li><strong>RAM:</strong> 1TB DDR5</li>
+                            <li><strong>Storage:</strong> 16TB NVMe SSD + 10TB HDD</li>
+                            <li><strong>Networking:</strong> 100Gbps</li>
+                            <li><strong>AI Acceleration:</strong> Dedicated AI acceleration for real-time processing</li>
+                        </ul>
+                        <div class="mb-4">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$7,499/month</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="max-w-sm blurred-background border border-gray-200 rounded-lg shadow dark:bg-gray-800/50 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-lg shadow-md">
+                        Coming Soon
+                    </div>
+                    <a href="#">
+                        <img class="rounded-t-lg w-full h-64 object-cover" src="./ai.jpg" alt="Vapour 1 AI Server" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" id="Vapour7">
+                                Vapour 7
+                            </h5>
+                        </a>
+                        <p class="mb-3 font-medium text-gray-700 dark:text-gray-400">
+                            Built for AI research labs, national AI infrastructures, and multi-modal AI. Enables large-scale AI computation for advanced research.
+                        </p>
+                        <ul class="mb-3 text-gray-700 dark:text-gray-400 text-sm space-y-2">
+                            <li><strong>GPU:</strong> 16 × NVIDIA B100 128GB</li>
+                            <li><strong>CPU:</strong> 512 vCPUs (Custom AI CPU)</li>
+                            <li><strong>RAM:</strong> 2TB DDR5</li>
+                            <li><strong>Storage:</strong> 32TB NVMe SSD + 20TB HDD</li>
+                            <li><strong>Networking:</strong> 200Gbps</li>
+                            <li><strong>AI Acceleration:</strong> AI supercomputing optimizations</li>
+                        </ul>
+                        <div class="mb-4">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$14,999/month</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="max-w-sm blurred-background border border-gray-200 rounded-lg shadow dark:bg-gray-800/50 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-lg shadow-md">
+                        Coming Soon
+                    </div>
+                    <a href="#">
+                        <img class="rounded-t-lg w-full h-64 object-cover" src="./ai.jpg" alt="Vapour 1 AI Server" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" id="Vapour8">
+                                Vapour 8
+                            </h5>
+                        </a>
+                        <p class="mb-3 font-medium text-gray-700 dark:text-gray-400">
+                            Designed for ASI development, planetary-scale AI, and extreme deep learning. Capable of running artificial superintelligence workloads.
+                        </p>
+                        <ul class="mb-3 text-gray-700 dark:text-gray-400 text-sm space-y-2">
+                            <li><strong>GPU:</strong> 32 × NVIDIA B200 192GB</li>
+                            <li><strong>CPU:</strong> 1024 vCPUs (Cognosphere Neural Compute Unit)</li>
+                            <li><strong>RAM:</strong> 4TB DDR6</li>
+                            <li><strong>Storage:</strong> 64TB NVMe SSD + 50TB HDD</li>
+                            <li><strong>Networking:</strong> 400Gbps</li>
+                            <li><strong>AI Acceleration:</strong> Neural processing fabric, hybrid quantum AI</li>
+                        </ul>
+                        <div class="mb-4">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$29,999/month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </main>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@1.6.3/dist/flowbite.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const tabs = document.querySelectorAll('aside a');
+            const contentDiv = document.getElementById('content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const tabId = e.target.id;
+                    let content = '';
+
+                    switch (tabId) {
+                        case 'home-tab':
+                            content = `<h1>Home</h1>
+                                        <p>Past Invoices: [List]</p>
+                                        <p>Active Invoices: [List]</p>
+                                        <p>Unpaid Invoices: [List]</p>
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font">
+                                            View Details
+                                        </button>`;
+                            break;
+                        // Add more cases for other tabs as needed
+                    }
+
+                    contentDiv.innerHTML = content;
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>
