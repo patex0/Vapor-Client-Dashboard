@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        <form action="#" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Subject Field -->
+                <div>
+                    <label for="subject" class="block text-sm font-medium text-gray-700">
+                        Subject <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        maxlength="255"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter the subject"
+                        required
+                    />
+                </div>
+
+                <!-- Department Field -->
+                <div>
+                    <label for="department" class="block text-sm font-medium text-gray-700">
+                        Department <span class="text-red-500">*</span>
+                    </label>
+                    <select
+                        id="department"
+                        name="department"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        required
+                    >
+                        <option value="">Twogere</option>
+                        <option value="YoDegree">YoDegree</option>
+                        <option value="GoLive">GoLive</option>
+                        <option value="Native">Native</option>
+                        <option value="GitCash">GitCash</option>
+                        <option value="Vapours">Vapours</option>
+                    </select>
+                </div>
+
+                <!-- Service Field -->
+                <div>
+                    <label for="service" class="block text-sm font-medium text-gray-700">Service</label>
+                    <input
+                        type="text"
+                        id="service"
+                        name="service"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Specify the service"
+                    />
+                </div>
+
+                <!-- IP/Domain Field -->
+                <div>
+                    <label for="ip-domain" class="block text-sm font-medium text-gray-700">IP/Domain (optional)</label>
+                    <input
+                        type="text"
+                        id="ip-domain"
+                        name="ip-domain"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter IP or domain"
+                    />
+                </div>
+
+                <!-- CC Field -->
+                <div>
+                    <label for="cc" class="block text-sm font-medium text-gray-700">CC</label>
+                    <input
+                        type="email"
+                        id="cc"
+                        name="cc"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter CC email"
+                    />
+                </div>
+            </div>
+
+            <!-- Information Note -->
+            <div class="text-sm text-gray-600 mt-4">
+                Thank you for contacting us. Providing adequate information or context will help us investigate your issue faster.
+            </div>
+
+            <!-- Rich Text Editor Placeholder -->
+            <div class="mt-4">
+                <label for="description" class="block text-sm font-medium text-gray-700">
+                    Description
+                </label>
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="6"
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Enter detailed description..."
+                ></textarea>
+            </div>
+
+            <!-- Attach Files, Cancel, Send Buttons -->
+            <div class="flex items-center justify-between mt-4">
+                <input id="fileInput" type="file" class="hidden" />
+                <button type="button"class="inline-flex items-center px-4 py-2 bg-gray-600 text-white text-sm font-medium rounded-lg shadow-sm hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                onclick="document.getElementById('fileInput').click();">
+                    Attach files
+                </button>
+                <div class="space-x-4">
+                    <button
+                        type="button"
+                        class="text-blue-600 hover:underline"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="submit"
+                        class="inline-flex items-center px-6 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg shadow-sm hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    >
+                        Send <span class="ml-2">&gt;</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
