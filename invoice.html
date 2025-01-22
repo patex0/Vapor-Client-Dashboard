@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Invoice Layout</title>
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-md">
+        <div class="p-6">
+          <ul class="space-y-4">
+              <li>
+              <span class="font-bold text-gray-600">Home</span>
+              <ul class="pl-4 space-y-2">
+                <li class="text-gray-500">ActiveInvoices</li>
+              </ul>
+            </li>
+            <li class="font-bold text-gray-600">Server</li>
+            <li>
+              <span class="font-bold text-gray-600">Tickets</span>
+              <ul class="pl-4 space-y-2">
+                <li class="text-gray-500">Support</li>
+              </ul>
+            </li>
+            <li class="font-bold text-gray-600">All Products</li>
+            <li class="font-bold text-gray-600">Accounts</li>
+        </div>
+      </aside>
+            <ul id="invoices-list" class="pl-6 hidden">
+                <li class="px-6 py-2 text-blue-500 font-semibold">Invoices</li>
+            </ul>
+        </li>
+                <li class="px-6 py-2 text-gray-700 font-semibold">Account</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1">
+            <!-- Header Section -->
+            <div class="bg-white p-4 flex justify-between items-center shadow">
+                <button class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <h1 class="text-xl font-semibold text-gray-800">Invoices</h1>
+                <div class="text-sm text-gray-600">alexapatex7@gmail.com</div>
+            </div>
+
+            <div class="p-6">
+                <!-- Filter Section -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 mb-6">
+                    <input type="text" placeholder="Invoice ID" class="border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none font-semibold">
+                    <input type="date" placeholder="Due Date" class="border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none font-semibold">
+                    <input type="date" placeholder="Date Paid" class="border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none font-semibold">
+                    <select class="border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none font-semibold">
+                        <option value="all">Status: All</option>
+                        <option value="paid">Paid</option>
+                        <option value="unpaid">Unpaid</option>
+                        <option value="unpaid">Partially paid</option>
+                        <option value="unpaid">Cancelled</option>
+                        <option value="unpaid">Partially refunded</option>
+                        <option value="unpaid">Fully refunded</option>
+                    </select>
+                    <input type="text" placeholder="Service Name" class="border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none font-semibold">
+                    <div class="flex items-center space-x-2">
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none">Search</button>
+                        <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300 focus:outline-none">Clear</button>
+                    </div>
+                </div>
+
+                <!-- Add New Service and Export Section -->
+                <div class="flex justify-between items-center mb-6">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none">Add New Service</button>
+                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300 focus:outline-none">Export as PDF</button>
+                </div>
+
+                <!-- Table Section -->
+                <div class="bg-white rounded shadow p-4">
+                    <table class="table-auto w-full text-left">
+                        <thead>
+                            <tr class="border-b">
+                                <th class="py-2 px-4 text-gray-600">ID</th>
+                                <th class="py-2 px-4 text-gray-600">Service Name</th>
+                                <th class="py-2 px-4 text-gray-600">Product</th>
+                                <th class="py-2 px-4 text-gray-600">Invoice Date</th>
+                                <th class="py-2 px-4 text-gray-600">Due Date</th>
+                                <th class="py-2 px-4 text-gray-600">Date Paid</th>
+                                <th class="py-2 px-4 text-gray-600">Payment Method</th>
+                                <th class="py-2 px-4 text-gray-600">Total Due</th>
+                                <th class="py-2 px-4 text-gray-600">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="9" class="text-center py-6 text-gray-500">
+                                    <div class="flex flex-col items-center">
+                                        <svg class="w-16 h-16 mb-2 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6h6v6h5v2H4v-2h5zm5-14l7 7-7-7z"></path>
+                                        </svg>
+                                        <p class="text-gray-400">Please update your billing address for invoice generation.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
