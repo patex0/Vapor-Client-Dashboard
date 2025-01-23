@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Methods</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    
+  <!-- Header -->
+  <header class="flex items-center justify-between bg-white p-4 shadow">
+    <div class="flex items-center space-x-2">
+      <button class="p-2">
+        <span class="block w-6 h-6 bg-gray-400"></span>
+      </button>
+      <h1 class="font-semibold text-lg">Payment Methods</h1>
+    </div>
+    <div class="flex items-center space-x-4">
+      <span class="text-sm text-gray-600"></span>
+      <button class="relative">
+        <span class="w-6 h-6 bg-red-500 rounded-full text-white flex items-center justify-center text-xs">1</span>
+      </button>
+      <button class="w-6 h-6 rounded-full bg-gray-300"></button>
+    </div>
+  </header>
+
+  <!-- Payment Section -->
+  <div class="max-w-md mx-auto mt-6 bg-white rounded-lg shadow">
+    <!-- Tabs -->
+    <div class="flex border-b">
+      <button class="flex-1 py-2 text-center border-b-2 border-blue-500 font-medium">Credit Card</button>
+      <button class="flex-1 py-2 text-center text-gray-500">PayPal</button>
+    </div>
+
+    <!-- Credit Card Section -->
+    <div class="p-4">
+      <div class="bg-gray-100 p-6 rounded-lg text-center text-gray-600">
+        You have yet to add your credit or debit card
+      </div>
+      <div class="mt-4 flex justify-center space-x-2">
+        <img src="visa-icon.png" alt="Visa" class="w-10 h-6">
+        <img src="mastercard-icon.png" alt="Mastercard" class="w-10 h-6">
+        <img src="paypal-icon.png" alt="PayPal" class="w-10 h-6">
+        <!-- Add more icons here -->
+      </div>
+        <!-- Add Button -->
+  <div class="p-6">
+    <button
+      id="openModal"
+      class="w-full bg-blue-500 text-white py-2 rounded-lg font-medium"
+    >
+      Add
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div
+    id="paymentModal"
+    class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center"
+  >
+    <div class="bg-white rounded-lg shadow-lg w-11/12 sm:w-96 p-6">
+      <!-- Modal Header -->
+      <div class="text-lg font-semibold mb-4">
+        Add Your Credit or Debit Card
+      </div>
+
+      <!-- Form -->
+      <form>
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-1" for="cardName">
+            Name on card
+          </label>
+          <input
+            id="cardName"
+            type="text"
+            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Name on card"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-1" for="cardNumber">
+            Card number
+          </label>
+          <div class="flex items-center border border-gray-300 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-blue-500">
+            <span class="inline-block w-6 h-6 bg-gray-200 rounded-full mr-2"></span>
+            <input
+              id="cardNumber"
+              type="text"
+              class="w-full text-sm focus:outline-none"
+              placeholder="Card number"
+            />
+            <input
+              type="text"
+              class="w-16 text-sm focus:outline-none text-right ml-2"
+              placeholder="MM / YY"
+            />
+            <input
+              type="text"
+              class="w-12 text-sm focus:outline-none text-right ml-2"
+              placeholder="CVC"
+            />
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <label class="inline-flex items-center">
+            <input
+              type="checkbox"
+              class="w-4 h-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
+            />
+            <span class="ml-2 text-sm text-gray-600">
+              Save as default payment method
+            </span>
+          </label>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="flex justify-between">
+          <button
+            type="button"
+            id="closeModal"
+            class="text-blue-500 font-medium"
+          >
+            Close
+          </button>
+          <button
+            type="submit"
+            class="bg-blue-500 text-white py-2 px-4 rounded-lg font-medium"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+    </div>
+
+    <!-- Information Section -->
+    <div class="p-4">
+      <h2 class="font-medium text-lg mb-2">Definition :</h2>
+      <p class="text-sm text-gray-600 mb-4">
+        Manage your payment methods for your Database Mart account.
+      </p>
+      <div class="space-y-2">
+        <a href="#" class="block text-blue-500 underline text-sm">How to Continue Your Service after the Free Trial</a>
+        <a href="#" class="block text-blue-500 underline text-sm">How to Set up a PayPal Subscription</a>
+      </div>
+    </div>
+    <!-- Notes Section -->
+    <div class="p-4">
+      <h2 class="font-medium text-lg mb-2">Notes :</h2>
+      <textarea class="w-full border rounded-lg p-2 text-sm" rows="4" placeholder="   * When you add a credit card, the card is automatically set as a default payment method for all future purpases.
+    * Paypal subscription can only be created when you pay your invoices."></textarea>
+    </div>
+    <div class="mt-6">
+      <button class="w-full bg-blue-500 text-white py-2 rounded-lg font-medium">Submit Ticket</button>
+    </div>
+
+  </div>
+</body>
+</html>
+
